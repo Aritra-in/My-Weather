@@ -1,0 +1,16 @@
+{
+  "name": "my-weather",
+  "version": "1.0.0",
+  "description": "This is the package for my-weather app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aritra",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7"
+  }
+}

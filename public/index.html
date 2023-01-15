@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./bgImg/Bokehlicia-Captiva-Weather.ico">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./media.css" />
+  <title>My Weather</title>
+</head>
+
+<body>
+  <div class="main">
+    <nav class="nav">
+      <a>My Weather</a>
+      <a id="savedLocation">Locations
+        <ul id="menu">
+          <li><p id="kolkata">Kolkata</p></li>
+          <li><p id="mumbai">Mumbai</p></li>
+          <li><p id="delhi">Delhi, India</p></li>
+          <li><p id="chennai">Chennai</p></li>
+        </ul>
+      </a>
+      <a>About</a>
+      <input type="text" placeholder="Location name" autocomplete="on" name="t1" id="locName" />
+      <input type="button" value="Search" id="search" />
+      <!-- <input type="button" value="" id="fav"> -->
+    </nav>
+    <div class="currTemp">
+      <h1 id="h1">
+        -_- °C <br />
+        Location
+      </h1>
+      <p id="maxMin">Max/Min Feels like <br />day, time</p>
+      <span id="icon"></span>
+    </div>
+    <div id="forecastTemp">
+      <p>Temperature Forecast</p>
+      <table>
+        <tr id="days">
+          <th>Sat</th>
+          <th>Sun</th>
+          <th>Mon</th>
+        </tr>
+
+        <tr id="icon2">
+          <td><img />Icon</td>
+          <td><img />Icon</td>
+          <td><img />Icon</td>
+        </tr>
+
+        <tr id="foreMaxMin">
+          <td>Max/Min</td>
+          <td>Max/Min</td>
+          <td>Max/Min</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="forecastWindSpeed">
+      <table>
+        <tr id="windSpeedDays">
+          <th></th>
+          <th>Sat</th>
+          <th>Sun</th>
+          <th>Mon</th>
+        </tr>
+
+        <tr id="foreWindSpeed">
+          <td>Wind Speed</td>
+          <td>Max/Min</td>
+          <td>Max/Min</td>
+          <td>Max/Min</td>
+        </tr>
+
+        <tr id="humidity">
+          <td>Humidity</td>
+          <td>%</td>
+          <td>%</td>
+          <td>%</td>
+        </tr>
+
+        <tr id="rain">
+          <td>Rain</td>
+          <td>%</td>
+          <td>%</td>
+          <td>%</td>
+        </tr>
+
+        <tr id="visibility">
+          <td>Visibility</td>
+          <td>%</td>
+          <td>%</td>
+          <td>%</td>
+        </tr>
+
+        <tr id="uvIndex">
+          <td>UV Index</td>
+          <td>%</td>
+          <td>%</td>
+          <td>%</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>

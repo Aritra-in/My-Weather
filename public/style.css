@@ -1,0 +1,242 @@
+
+* {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+.nav {
+  background-color: rgba(204, 102, 109, 0.486);
+  height: 50px;
+  width: 1900px;
+  margin-top: 10px;
+  padding: 10px 10px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#menu{
+  position: absolute;
+  top: 68%;
+  left: 20%;
+  height: auto;
+  width: 130px;
+  padding: 10px;
+  background-color: red;
+  margin: 0px 0px;
+  border: 2px solid white;
+  border-radius: 10px;
+  list-style: none;
+  display: none;
+}
+
+#menu li{
+  padding: 10px;
+  text-decoration: none;
+}
+
+#menu li:hover{
+  background-color: rgba(189, 189, 189, 0.527);
+  cursor: pointer;
+}
+
+.nav a:hover #menu{
+  display: inline;
+}
+
+#locName {
+  position: absolute;
+  left: 80%;
+  height: 35px;
+  width: 170px;
+  padding-left: 10px;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+#locName:hover{
+  border: 2px solid rgb(255, 166, 0);
+}
+
+#search {
+  position: absolute;
+  left: 90%;
+  height: 30px;
+  width: 70px;
+  padding: 5px 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+#search:hover {
+  background-color: gray;
+}
+
+/* #fav{
+  position: absolute;
+  left: 77%;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url(./bgImg/bookmark_border_black_24dp.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5px 5px;
+  border:none;
+  cursor: pointer;
+}
+
+#fav:hover{
+  background-size: 110%;
+}
+
+#fav:active{
+  background-image: url(./bgImg/bookmark_black_24dp.svg);
+} */
+
+.main {
+  left: 10%;
+  /*background-color: rgba(164, 129, 187, 0.548);*/
+  background-image: url(./bgImg/7270362.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+  width: 1920px;
+}
+
+.currTemp {
+  background-color: rgba(207, 158, 207, 0);
+  height: 250px;
+  width: 400px;
+  position: relative;
+  top: 55%;
+  left: 20%;
+  transform: translate(-200px, -300px);
+  border-radius: 20px;
+}
+
+.currTemp h1 {
+  /*background-color: white;*/
+  color: rgb(255, 255, 255);
+  height: fit-content;
+  width: fit-content;
+  margin: 10px 10px;
+  padding: 5px 5px;
+  position: absolute;
+  top: 5%;
+  left: 20px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.currTemp p {
+  /*background-color: white;*/
+  color: rgb(255, 255, 255);
+  height: auto;
+  width: auto;
+  margin: 10px 10px;
+  padding: 5px 5px;
+  position: absolute;
+  top: 60%;
+  left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.currTemp span {
+  position: absolute;
+  top: 0%;
+  left: 70%;
+  background-color: rgba(255, 122, 122, 0);
+  height: 120px;
+  width: 120px;
+}
+
+.currTemp img {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  height: 120px;
+  width: 120px;
+}
+
+/*...................*/
+/*Forecast Temperature*/
+#forecastTemp {
+  background-color: rgba(131, 131, 131, 0.26);
+  height: 250px;
+  width: 500px;
+  position: relative;
+  top: 45%;
+  left: 5%;
+  border-radius: 20px;
+}
+
+#forecastTemp p {
+  padding-bottom: 5px;
+  position: absolute;
+  top: 3%;
+  left: 18%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+}
+
+#forecastTemp table {
+  position: absolute;
+  top: 25%;
+  left: 2%;
+  margin: 5px 5px;
+  color: white;
+}
+
+#forecastTemp th,
+td {
+  padding: 1px 20px;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/*...................*/
+/*Forecast Wind Speed*/
+#forecastWindSpeed {
+  background-color: rgba(131, 131, 131, 0.26);
+  height: 250px;
+  width: 500px;
+  position: relative;
+  top: 20%;
+  left: 40%;
+  border-radius: 20px;
+}
+
+#forecastWindSpeed table {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  margin: 2px 2px;
+  color: white;
+}
+
+#forecastWindSpeed tr,
+td {
+  padding: 5px 15px;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
