@@ -52,5 +52,5 @@ app.get('/weather/:location', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`App is listening on port ${port}`);
-  console.log(process.env.API_KEY);
+  // console.log(process.env.API_KEY);
 });
