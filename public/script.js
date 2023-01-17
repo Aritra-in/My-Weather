@@ -51,7 +51,7 @@ async function weather(loc) {
   var foreMaxMin = document.getElementById("foreMaxMin");
 
   const api_url = `/weather/:${location}`;
-
+  // console.log(`${location} ${dayList[day]} ${date}/${month}/${year} ${hours}:${minutes}`);
   try {
     //fetching...
     const api_fetch = await fetch(api_url);
@@ -128,10 +128,13 @@ async function weather(loc) {
 //LiveLocation-fetch
 function liveLoc() {
   const success = async (e) => {
+    //console.log(e);
+    
     const lat = e.coords.latitude;
     const lon = e.coords.longitude;
-    geoAPIUrl = `/geoAPI/:${lat}:${lon}`;
-
+    
+    geoAPIUrl = `/geoAPI/${lat}/${lon}/${deviceDescription}/${dayList[day]}/${date}/${month}/${year}/${hours}/${minutes}`;
+    // console.log(` ${dayList[day]} ${date}/${month}/${year} ${hours}:${minutes}`);
     //fetching...
     const geo_fetch = await fetch(geoAPIUrl);
     const data = await geo_fetch.json();
@@ -145,7 +148,22 @@ function liveLoc() {
     alert("Geo Location Error ☹ \n\nPlease turn on your GPS \nOr allow GPS location access ");
     console.error(error);
   };
-  navigator.geolocation.getCurrentPosition(success, error); //calling the geoLocation function
+
+
+  // const deviceBrowserName=platform.name;
+  // const deviceVersion=platform.version;
+  // const deviceLayout=platform.layout;
+  // const deviceOS=platform.os;
+  const deviceDescription=platform.description;
+  
+  // console.log(deviceBrowserName);
+  // console.log(deviceVersion);
+  // console.log(deviceLayout);
+  // console.log(deviceOS);
+  console.log(deviceDescription);
+  
+  navigator.geolocation.getCurrentPosition(success, error,{enableHighAccuracy: true}); //calling the geoLocation function
+  
 }
 
 

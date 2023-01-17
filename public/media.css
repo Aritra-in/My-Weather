@@ -74,7 +74,107 @@
       font-size: 15px;
       padding: 5px;
       text-decoration: none;
+      border-radius: 5px;
     }
+
+    .about {
+      position: absolute;
+      top: 68%;
+      left: 40%;
+      height: 80px;
+      width: 85px;
+      padding: 10px;
+      background-color: rgba(0, 157, 168, 0.411);
+      margin: 0px 0px;
+      border: 2px solid rgba(0, 201, 167, 0.356);
+      border-radius: 10px;
+      display: none;
+    }
+    
+    .gitLink{
+      height: 20px;
+      width: 85px;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      margin: 10px 10px 5px;
+      border-radius: 5px;
+      /* background-color: white; */
+    }
+    
+    .instaLink{
+      height: 20px;
+      width: 85px;
+      position: absolute;
+      top: 35%;
+      left: 0%;
+      margin: 5px 10px;
+      border-radius: 5px;
+      /* background-color: white; */
+    }
+    
+    .about img{
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+    
+    #gitIcon{
+      cursor: default;
+    }
+    
+    #instaIcon{
+      cursor: default;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+    
+    #git{
+      cursor: pointer;
+      font-size: 12px;
+      position: absolute;
+      top: 0%;
+      left: 30%;
+      margin: 3px 5px;
+      height: 20px;
+      width: 45px;
+    }
+    
+    #insta{
+      cursor: pointer;
+      font-size: 12px;
+      position: absolute;
+      top: 0%;
+      left: 30%;
+      margin: 3px 5px;
+      height: 20px;
+      width: 45px;
+    }
+    
+    .more{
+      cursor: pointer;
+      height: 20px;
+      width: 85px;
+      position: absolute;
+      top: 68%;
+      left: 0%;
+      margin: 5px 10px;
+      border-radius: 5px;
+      /* background-color: white; */
+    }
+    
+    .more a{
+      position: absolute;
+      top: 0%;
+      left: 35%;
+      height: 20px;
+      width: 45px;
+      margin: 3px 5px 5px;
+    }
+    
 
     .main {
       /*background-color: rgba(164, 129, 187, 0.548);*/
@@ -215,6 +315,22 @@
     #forecastWindSpeed td{
       padding: 5px 18px;
       font-size: 15px;
+    }
+    .footer{
+      background-color: rgba(255, 0, 0, 0);
+      margin: -30px 0px;
+      height: 20px;
+      width: 300px;
+      position: static;
+      transform: translate(55px,5px);
+      text-align: center;
+    }
+    
+    .footer h1{
+      color: rgba(255, 255, 255, 0.432);
+      font-size: 12px;
+      font-family: "Trirong", serif;
+      font-weight: bolder;
     }
   }
   

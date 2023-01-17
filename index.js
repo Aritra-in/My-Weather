@@ -5,9 +5,9 @@ const app = express();
 const path = require('path');
 const fetch = require('node-fetch');
 // const { json } = require('express');
-const port = 3000;
+const port = process.env.PORT || 3000;
 require('dotenv').config();
-
+const Datastore = require('nedb');
 
 const options = {
   method: "GET",
@@ -17,20 +17,39 @@ const options = {
   },
 };
 
+const database = new Datastore('database.db');
+database.loadDatabase();
+
+
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get('/geoAPI/:lat:lon', async (req, res) => {
+app.get('/geoAPI/:lat/:lon/:deviceINFO/:dayList/:date/:month/:year/:hour/:minutes', async (req, res) => {
   const lat = req.params.lat;
   const lon = req.params.lon;
-  geoAPIUrl = process.env.GEO_API_URL;
+  const deviceINFO = req.params.deviceINFO;
+  const dayList=req.params.dayList;
+  const date=req.params.date;
+  const month=req.params.month;
+  const year=req.params.year;
+  const hour=req.params.hour;
+  const minutes=req.params.minutes;
 
+
+  database.insert({dayList, date, month, year, hour, minutes, deviceINFO, lat, lon});
+  console.log(lat, lon, deviceINFO, dayList, date, month, year, hour, minutes);
+  
+  geoAPIUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
+  
   //fetching...
   const geo_fetch = await fetch(geoAPIUrl);
   const data = await geo_fetch.json();
+  
+  console.log(data.latitude);
+  
   res.json(data);
 })
 

@@ -31,27 +31,157 @@
   height: auto;
   width: 130px;
   padding: 10px;
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.493);
   margin: 0px 0px;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.521);
   border-radius: 10px;
   list-style: none;
   display: none;
 }
 
 #menu li{
+  border-radius: 8px;
   padding: 10px;
   text-decoration: none;
 }
 
 #menu li:hover{
-  background-color: rgba(189, 189, 189, 0.527);
+  background-color: rgba(189, 189, 189, 0.363);
   cursor: pointer;
 }
 
 .nav a:hover #menu{
-  display: inline;
+  display: block;
 }
+
+#menu:hover{
+  display: block;
+}
+
+.about {
+  position: absolute;
+  top: 68%;
+  left: 35%;
+  height: 140px;
+  width: 150px;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.493);
+  margin: 0px 0px;
+  border: 2px solid rgba(255, 255, 255, 0.521);
+  border-radius: 10px;
+  display: none;
+}
+
+.gitLink{
+  height: 40px;
+  width: 150px;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  margin: 10px 10px 5px;
+  border-radius: 8px;
+  /* background-color: white; */
+}
+
+.instaLink{
+  height: 40px;
+  width: 150px;
+  position: absolute;
+  top: 35%;
+  left: 0%;
+  margin: 5px 10px;
+  border-radius: 8px;
+  /* background-color: white; */
+}
+
+.about img{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+#gitIcon{
+  cursor: default;
+}
+
+#instaIcon{
+  cursor: default;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+#git{
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  margin: 0px 0px;
+  height: 20px;
+  width: 100px;
+  margin: 5px;
+}
+
+#insta{
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  margin: 0px 0px;
+  height: 20px;
+  width: 100px;
+  margin: 5px;
+}
+
+.more{
+  cursor: pointer;
+  height: 40px;
+  width: 150px;
+  position: absolute;
+  top: 68%;
+  left: 0%;
+  margin: 5px 10px;
+  border-radius: 8px;
+  /* background-color: white; */
+}
+
+.more a{
+  position: absolute;
+  top: 0%;
+  left: 35%;
+  height: 20px;
+  width: 80px;
+  margin: 8px 5px 5px;
+}
+
+.gitLink:hover{
+  background-color: rgba(189, 189, 189, 0.363);
+  cursor: pointer;
+}
+
+.instaLink:hover{
+  background-color: rgba(189, 189, 189, 0.363);
+  cursor: pointer;
+}
+
+.more:hover{
+  background-color: rgba(189, 189, 189, 0.363);
+  cursor: pointer;
+}
+
+
+.nav a:hover+.about{
+  display: block;
+}
+
+.about:hover{
+  display: block;
+}
+
 
 #locName {
   position: absolute;
@@ -239,4 +369,21 @@ td {
   font-size: 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+}
+
+.footer{
+  background-color: rgba(255, 0, 0, 0);
+  margin: -30px 0px;
+  height: 20px;
+  width: 300px;
+  position: static;
+  transform: translate(860px,5px);
+  text-align: center;
+}
+
+.footer h1{
+  color: rgba(255, 255, 255, 0.144);
+  font-size: 12px;
+  font-family: "Trirong", serif;
+  font-weight: bolder;
 }
