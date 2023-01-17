@@ -1,5 +1,10 @@
+//client IP Address fetch function call
+clientIP();
+
 //live Location function call
 liveLoc();
+
+
 
 //date & time
 var dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -19,28 +24,52 @@ btn.addEventListener("click", weather);
 
 //subMenu
 const kolkata = document.getElementById("kolkata");
-kolkata.addEventListener('click', ()=>{subMenuItem(kolkata)});
+kolkata.addEventListener('click', () => { subMenuItem(kolkata) });
 const mumbai = document.getElementById("mumbai");
-mumbai.addEventListener('click', ()=>{subMenuItem(mumbai)});
+mumbai.addEventListener('click', () => { subMenuItem(mumbai) });
 const delhi = document.getElementById("delhi");
-delhi.addEventListener('click', ()=>{subMenuItem(delhi)});
-const chennai = document.getElementById("chennai");  
-chennai.addEventListener('click', ()=>{subMenuItem(chennai)});
+delhi.addEventListener('click', () => { subMenuItem(delhi) });
+const chennai = document.getElementById("chennai");
+chennai.addEventListener('click', () => { subMenuItem(chennai) });
 
-function subMenuItem(e){
-  const loc_name=e.innerHTML;
+function subMenuItem(e) {
+  const loc_name = e.innerHTML;
   weather(loc_name);
   console.log(loc_name);
+}
+
+
+//user ip address fetch function
+async function userIPFetch() {
+  const IPFetchApi = `https://api.ipify.org?format=json`;
+  const IPResponse = await fetch(IPFetchApi);
+  const IPdata = await IPResponse.json();
+  // console.log(IPdata);
+  return IPdata.ip;
+}
+
+
+
+async function clientIP(){
+  const deviceDescription = platform.description;
+  const userIP =await userIPFetch();
+  // console.log(userIP);
+
+  const clientIP= `/clientIP/${userIP}/${deviceDescription}/${dayList[day]}/${date}/${month}/${year}/${hours}/${minutes}`;
+  const clientIPRes=await fetch(clientIP);
+  // const clientIPData=await clientIPRes.json();
+  
 }
 
 
 
 //weather function with Location parameter passed
 async function weather(loc) {
+
   //variable declared...
   const currLocName = loc;
   let location = document.getElementById("locName").value;
-  if (location =='') {
+  if (location == '') {
     location = currLocName;
   }
   var temperature = document.getElementById("h1");
@@ -50,13 +79,15 @@ async function weather(loc) {
   var icon2 = document.getElementById("icon2");
   var foreMaxMin = document.getElementById("foreMaxMin");
 
-  const api_url = `/weather/:${location}`;
+
+
+  const api_url = `/weather/${location}`;
   // console.log(`${location} ${dayList[day]} ${date}/${month}/${year} ${hours}:${minutes}`);
   try {
     //fetching...
     const api_fetch = await fetch(api_url);
     const response = await api_fetch.json();
-    console.log(response);
+    // console.log(response);
 
     //innerHTML
     temperature.innerHTML = `${response.current.temp_c}°C <br> ${response.location.name}`;
@@ -129,10 +160,10 @@ async function weather(loc) {
 function liveLoc() {
   const success = async (e) => {
     //console.log(e);
-    
+
     const lat = e.coords.latitude;
     const lon = e.coords.longitude;
-    
+
     geoAPIUrl = `/geoAPI/${lat}/${lon}/${deviceDescription}/${dayList[day]}/${date}/${month}/${year}/${hours}/${minutes}`;
     // console.log(` ${dayList[day]} ${date}/${month}/${year} ${hours}:${minutes}`);
     //fetching...
@@ -154,16 +185,16 @@ function liveLoc() {
   // const deviceVersion=platform.version;
   // const deviceLayout=platform.layout;
   // const deviceOS=platform.os;
-  const deviceDescription=platform.description;
-  
+  const deviceDescription = platform.description;
+
   // console.log(deviceBrowserName);
   // console.log(deviceVersion);
   // console.log(deviceLayout);
   // console.log(deviceOS);
-  console.log(deviceDescription);
-  
-  navigator.geolocation.getCurrentPosition(success, error,{enableHighAccuracy: true}); //calling the geoLocation function
-  
+  // console.log(deviceDescription);
+
+  navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true }); //calling the geoLocation function
+
 }
 
 

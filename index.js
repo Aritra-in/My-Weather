@@ -17,8 +17,10 @@ const options = {
   },
 };
 
-const database = new Datastore('database.db');
-database.loadDatabase();
+const database_with_geoLocation = new Datastore('databaseWithGeoLoc.db');
+const database_with_IP=new Datastore('databaseWithIP.db');
+database_with_geoLocation.loadDatabase();
+database_with_IP.loadDatabase();
 
 
 app.use(express.static('public'));
@@ -27,7 +29,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get('/geoAPI/:lat/:lon/:deviceINFO/:dayList/:date/:month/:year/:hour/:minutes', async (req, res) => {
+app.get('/geoAPI/:lat/:lon/:deviceINFO/:dayList/:date/:month/:year/:hours/:minutes', async (req, res) => {
   const lat = req.params.lat;
   const lon = req.params.lon;
   const deviceINFO = req.params.deviceINFO;
@@ -35,12 +37,12 @@ app.get('/geoAPI/:lat/:lon/:deviceINFO/:dayList/:date/:month/:year/:hour/:minute
   const date=req.params.date;
   const month=req.params.month;
   const year=req.params.year;
-  const hour=req.params.hour;
+  const hours=req.params.hours;
   const minutes=req.params.minutes;
 
 
-  database.insert({dayList, date, month, year, hour, minutes, deviceINFO, lat, lon});
-  console.log(lat, lon, deviceINFO, dayList, date, month, year, hour, minutes);
+  database_with_geoLocation.insert({lat, lon, date, month, year, dayList, hours, minutes, deviceINFO});
+  console.log(lat, lon, deviceINFO, dayList, date, month, year, hours, minutes);
   
   geoAPIUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
   
@@ -55,6 +57,7 @@ app.get('/geoAPI/:lat/:lon/:deviceINFO/:dayList/:date/:month/:year/:hour/:minute
 
 app.get('/weather/:location', async (req, res) => {
   const loc = req.params.location;
+
   const api_url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${loc}&days=3`;
   try {
     //fetching...
@@ -66,6 +69,22 @@ app.get('/weather/:location', async (req, res) => {
   }
 });
 
+app.get('/clientIP/:userIP/:deviceINFO/:dayList/:date/:month/:year/:hours/:minutes', async(req, res)=>{
+  const userIP=req.params.userIP;
+  // console.log(userIP);
+ 
+  const deviceINFO = req.params.deviceINFO;
+  const dayList=req.params.dayList;
+  const date=req.params.date;
+  const month=req.params.month;
+  const year=req.params.year;
+  const hours=req.params.hours;
+  const minutes=req.params.minutes;
+
+
+  database_with_IP.insert({userIP, date, month, year, dayList, hours, minutes, deviceINFO});
+  // console.log(userIP, deviceINFO, dayList, date, month, year, hours, minutes);
+})
 
 
 
